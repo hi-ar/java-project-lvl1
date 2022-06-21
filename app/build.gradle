@@ -36,3 +36,7 @@ application {
     // Define the main class for the application.
     mainClass = 'hexlet.code.App'
 }
+
+compileJava {
+    options.release = 17
+}
