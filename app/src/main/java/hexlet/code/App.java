@@ -1,4 +1,7 @@
 package hexlet.code;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+
 import java.util.Scanner;
 class App {
 	public static void main(String[] args) {
@@ -7,16 +10,16 @@ class App {
 			System.out.println("Please enter the game number and press Enter.\n" +
 					"1 - Greet\n" +
 					"2 - Even\n" +
+					"3 - Calc\n" +
 					"0 - Exit");
 			int gameNum = scanner.nextInt();
 			switch (gameNum) {
 				case 1 : System.out.println("Your choice: 1\nWelcome to the Brain Games!"); Cli.greeting(); break;
 				case 2 : System.out.println("Your choice: 2\nWelcome to the Brain Games!"); Even.start(); break;
+				case 3 : System.out.println("Your choice: 3\nWelcome to the Brain Games!"); Calc.app(); break;
 				case 0 : break;
 				default: continue;
 			}
-			//System.out.println("Welcome to the Brain Games!");
-			//Cli.greeting();
 		}
 	}
 }
