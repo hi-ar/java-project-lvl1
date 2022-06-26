@@ -7,3 +7,5 @@ Even rec: https://asciinema.org/a/EntFdrZeSZzK3MT129DW78mxF
 Calc rec: https://asciinema.org/a/9pG3JuD9Ck9tAQFouy2hlqujE
 
 GCD rec: https://asciinema.org/a/t7nOieuFvvmFbTDvlAm0DddaS
+
+Progression rec: https://asciinema.org/a/BzPeVFoscYgmGQ3UQD4c1uwv9
