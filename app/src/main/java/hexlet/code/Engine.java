@@ -11,7 +11,7 @@ public class Engine {
         System.out.println("Hello, " + getPlayerName());
     }
 
-    public static String playerName;
+    static String playerName; //publ
 
     static void setPlayerName (String newPlayerName){
         playerName = newPlayerName;
@@ -21,8 +21,7 @@ public class Engine {
         return playerName;
     }
 
-    public static boolean isCorrect(int a, int b, int operation) {
-        printExpression(a, b, operation);
+    public static boolean calcIsCorrect(int a, int b, int operation) {
         Scanner scan = new Scanner(System.in);
         int playerAnsw = scan.nextInt();
         switch (operation) {
@@ -31,22 +30,44 @@ public class Engine {
             default : setNumbers(playerAnsw, a * b); return playerAnsw == (a * b);
         }
     }
-    static void printExpression(int a, int b, int operation) {
-        switch (operation) {
-            case 0 : System.out.println("Question: " + a + " + " + b); break;
-            case 1 : System.out.println("Question: " + a + " - " + b); break;
-            default: System.out.println("Question: " + a + " * " + b); break;
+    public static boolean gcdIsCorrect(int a, int b) {
+        int correctAnsw = 1;
+        int large = Math.max(a, b);
+        int small = large == a ? b : a;
+        for (int i = small; i >= 1; i--) {
+            if (large % i == 0 && small % i == 0) {
+                correctAnsw = i;
+                break;
+            }
         }
+        Scanner scan = new Scanner(System.in);
+        int playerAnsw = scan.nextInt();
+        setNumbers(playerAnsw, correctAnsw);
+        return playerAnsw == correctAnsw;
     }
-    public static int playerAnsw;
-    public static int correctAnsw;
+    static int playerAnsw;  //publ
+    static int correctAnsw;  //publ
     static void setNumbers(int newPlayerAnsw, int newCorrectAnsw){
         playerAnsw = newPlayerAnsw;
         correctAnsw = newCorrectAnsw;
     }
 
-    public static int[] getNumbers(){
+    static int[] getNumbers() {  //publ
         return new int[] {playerAnsw, correctAnsw};
+    }
+
+    public static void nextTask() {
+        System.out.println("Your answer: " + getNumbers()[0]);
+        System.out.println("Correct!");
+    }
+
+    public static void loseGame() {
+        System.out.println("Your answer: " + getNumbers()[0]);
+        System.out.println("'" + getNumbers()[0] + "' is wrong answer ;(. Correct answer was '" + getNumbers()[1] + "'");
+        System.out.println("Let's try again, " + getPlayerName() + "!");
+    }
+    public static void congrats() {
+        System.out.println("Congratulations, " + getPlayerName() + "!");
     }
 }
 /*С введением второй игры у вас появляется общая для всех игр логика

@@ -1,6 +1,7 @@
 package hexlet.code;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
 
 import java.util.Scanner;
 class App {
@@ -11,12 +12,14 @@ class App {
 					"1 - Greet\n" +
 					"2 - Even\n" +
 					"3 - Calc\n" +
+					"4 - GCD\n" +
 					"0 - Exit");
 			int gameNum = scanner.nextInt();
 			switch (gameNum) {
 				case 1 : System.out.println("Your choice: 1\nWelcome to the Brain Games!"); Cli.greeting(); break;
 				case 2 : System.out.println("Your choice: 2\nWelcome to the Brain Games!"); Even.start(); break;
 				case 3 : System.out.println("Your choice: 3\nWelcome to the Brain Games!"); Calc.app(); break;
+				case 4 : System.out.println("Your choice: 4\nWelcome to the Brain Games!"); GCD.app(); break;
 				case 0 : break;
 				default: continue;
 			}
