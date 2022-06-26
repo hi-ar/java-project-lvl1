@@ -47,7 +47,7 @@ public class Engine {
     }
     static int playerAnsw;  //publ
     static int correctAnsw;  //publ
-    static void setNumbers(int newPlayerAnsw, int newCorrectAnsw){
+    public static void setNumbers(int newPlayerAnsw, int newCorrectAnsw){
         playerAnsw = newPlayerAnsw;
         correctAnsw = newCorrectAnsw;
     }
