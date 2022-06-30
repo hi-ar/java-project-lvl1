@@ -33,6 +33,8 @@ testing {
     }
 }
 
+//group = 'io.hexlet'
+
 application {
     // Define the main class for the application.
     mainClass = 'hexlet.code.App'

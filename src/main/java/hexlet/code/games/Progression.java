@@ -1,11 +1,13 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+
 import java.util.Scanner;
 import java.util.StringJoiner;
 
 public class Progression {
     public static void app() {
+        System.out.println("Your choice: 5");
         Engine.greeting();
         System.out.println("What number is missing in the progression?");
         int correctAnsw = 0;
@@ -35,7 +37,7 @@ public class Progression {
                 break;
             }
         }
-        if(correctAnsw == 3) {
+        if (correctAnsw == 3) {
             Engine.congrats();
         }
     }
