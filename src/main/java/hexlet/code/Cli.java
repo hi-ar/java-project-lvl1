@@ -11,6 +11,6 @@ public class Cli {
 
         String playerName = scan.nextLine();
         scan.close();
-        System.out.println("Hello, " + playerName);
+        System.out.println("Hello, " + playerName + "!");
     }
 }

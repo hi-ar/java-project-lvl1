@@ -9,7 +9,7 @@ public class Engine {
         Scanner scan = new Scanner(System.in);
         String playerName = scan.nextLine();
         setPlayerName(playerName);
-        System.out.println("Hello, " + getPlayerName());
+        System.out.println("Hello, " + getPlayerName() + "!");
     }
 
     static String playerName;
