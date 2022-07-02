@@ -41,7 +41,8 @@ public class Engine {
 
     public static void loseGame() {
         System.out.println("Your answer: " + getNumbers()[0]);
-        System.out.println("'" + getNumbers()[0] + "' is wrong answer ;(. Correct answer was '" + getNumbers()[1] + "'");
+        System.out.println("'" + getNumbers()[0] + "' is wrong answer ;(. Correct answer was '"
+                + getNumbers()[1] + "'");
         System.out.println("Let's try again, " + getPlayerName() + "!");
     }
 

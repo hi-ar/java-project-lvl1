@@ -6,12 +6,12 @@ public class Even {
     public static void start() {
         int correctAnsw = 0;
         Scanner scan = new Scanner(System.in);
-        System.out.println("Your choice: 2\n" +
-                "Welcome to the Brain Games!\n" +
-                "May I have your name?");
+        System.out.println("Your choice: 2\n"
+                + "Welcome to the Brain Games!\n"
+                + "May I have your name?");
         String playerName = scan.nextLine();
-        System.out.println("Hello, " + playerName + "\n" +
-                "Answer 'yes' if the number is even, otherwise answer 'no'.");
+        System.out.println("Hello, " + playerName + "\n"
+                + "Answer 'yes' if the number is even, otherwise answer 'no'.");
         while (correctAnsw < 3) {
             int a = (int) (Math.random() * 100);
             boolean isEven = a % 2 == 0;
@@ -23,8 +23,8 @@ public class Even {
                     System.out.println("Correct!");
                     correctAnsw++;
                 } else {
-                    System.out.println("'" + playerAnsw + "' is wrong answer ;(. Correct answer was 'yes'.\n" +
-                            "Let's try again, " + playerName + "!");
+                    System.out.println("'" + playerAnsw + "' is wrong answer ;(. Correct answer was 'yes'.\n"
+                            + "Let's try again, " + playerName + "!");
                     break;
                 }
             } else { //if random odd
@@ -32,8 +32,8 @@ public class Even {
                     System.out.println("Correct!");
                     correctAnsw++;
                 } else {
-                    System.out.println("'" + playerAnsw + "' is wrong answer ;(. Correct answer was 'no'."+
-                            "\nLet's try again, " + playerName + "!");
+                    System.out.println("'" + playerAnsw + "' is wrong answer ;(. Correct answer was 'no'."
+                            + "\nLet's try again, " + playerName + "!");
                     break;
                 }
             }
