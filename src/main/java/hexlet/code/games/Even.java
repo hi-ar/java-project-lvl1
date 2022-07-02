@@ -24,7 +24,7 @@ public class Even {
                     correctAnsw++;
                 } else {
                     System.out.println("'" + playerAnsw + "' is wrong answer ;(. Correct answer was 'yes'.\n" +
-                            "Let's try again, " + playerName);
+                            "Let's try again, " + playerName + "!");
                     break;
                 }
             } else { //if random odd
@@ -32,7 +32,8 @@ public class Even {
                     System.out.println("Correct!");
                     correctAnsw++;
                 } else {
-                    System.out.println("'" + playerAnsw + "' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, " + playerName);
+                    System.out.println("'" + playerAnsw + "' is wrong answer ;(. Correct answer was 'no'."+
+                            "\nLet's try again, " + playerName + "!");
                     break;
                 }
             }
