@@ -37,9 +37,8 @@ public class Even {
                 }
             }
         } // end of while
-        scan.close();
         if (correctAnsw == 3) {
-            System.out.println("Congratulations, " + playerName);
+            System.out.println("Congratulations, " + playerName + "!");
         }
     }
 }

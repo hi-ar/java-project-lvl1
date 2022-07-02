@@ -1,4 +1,4 @@
 run-dist:
-	chmod 766 app/build/install/app/bin/app
-	./app/build/install/app/bin/app
+	chmod 766 build/install/app/bin/app
+	./build/install/app/bin/app
 
