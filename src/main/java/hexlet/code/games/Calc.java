@@ -10,10 +10,10 @@ public class Calc {
         Engine.greeting();
         System.out.println("What is the result of the expression?");
         int correctAnsw = 0;
-        while (correctAnsw < 3) {
-            int a = (int) (1 + Math.random() * 11);
-            int b = (int) (1 + Math.random() * 11);
-            int operation = (int) (Math.random() * 3);
+        while (correctAnsw < Engine.NUM_OF_ROUNDS) {
+            int a = (int) (1 + Math.random() * Engine.OPERAND_RANGE);
+            int b = (int) (1 + Math.random() * Engine.OPERAND_RANGE);
+            int operation = (int) (Math.random() * Engine.OPERATOR_RANGE);
             switch (operation) {
                 case 0:
                     System.out.println("Question: " + a + " + " + b);
@@ -33,7 +33,7 @@ public class Calc {
                 break;
             }
         }
-        if (correctAnsw == 3) {
+        if (correctAnsw == Engine.NUM_OF_ROUNDS) {
             Engine.congrats();
         }
     }

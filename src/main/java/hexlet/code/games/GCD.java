@@ -10,9 +10,9 @@ public class GCD {
         Engine.greeting();
         System.out.println("Find the greatest common divisor of given numbers.");
         int correctAnsw = 0;
-        while (correctAnsw < 3) {
-            int a = (int) (Math.random() * 101);
-            int b = (int) (Math.random() * 101);
+        while (correctAnsw < Engine.NUM_OF_ROUNDS) {
+            int a = (int) (1 + Math.random() * Engine.BIG_OPERAND_RANGE);
+            int b = (int) (1 + Math.random() * Engine.BIG_OPERAND_RANGE);
             System.out.println("Question: " + a + " " + b);
             if (gcdIsCorrect(a, b)) {
                 Engine.nextTask();
@@ -22,7 +22,7 @@ public class GCD {
                 break;
             }
         }
-        if (correctAnsw == 3) {
+        if (correctAnsw == Engine.NUM_OF_ROUNDS) {
             Engine.congrats();
         }
     }
@@ -41,5 +41,4 @@ public class GCD {
         Engine.setNumbers(playerAnsw, correctAnsw);
         return playerAnsw == correctAnsw;
     }
-
 }

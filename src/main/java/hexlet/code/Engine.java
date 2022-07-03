@@ -3,17 +3,20 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
+
+    public static final int NUM_OF_ROUNDS = 3;
+    public static final int OPERAND_RANGE = 11; // for multiplying
+    public static final int BIG_OPERAND_RANGE = 101;
+    public static final int OPERATOR_RANGE = 3; // + - *
+    private static String playerName;
     public static void greeting() {
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name?");
         Scanner scan = new Scanner(System.in);
-        String playerName = scan.nextLine();
-        setPlayerName(playerName);
+        String scanPlayerName = scan.nextLine();
+        setPlayerName(scanPlayerName);
         System.out.println("Hello, " + getPlayerName() + "!");
     }
-
-    static String playerName;
-
     static void setPlayerName(String newPlayerName) {
         playerName = newPlayerName;
     }
@@ -22,8 +25,8 @@ public class Engine {
         return playerName;
     }
 
-    static int playerAnsw;  //publ
-    static int correctAnsw;  //publ
+    private static int playerAnsw;
+    private static int correctAnsw;
 
     public static void setNumbers(int newPlayerAnsw, int newCorrectAnsw) {
         playerAnsw = newPlayerAnsw;
