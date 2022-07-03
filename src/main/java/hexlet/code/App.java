@@ -7,7 +7,8 @@ import hexlet.code.games.GCD;
 import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
 
-class App {
+public class App {
+    public static final int EVEN = 2;
     public static final int CALC = 3;
     public static final int GCD_NUM = 4;
     public static final int PROGRESSION = 5;
@@ -30,7 +31,7 @@ class App {
             case 1:
                 Cli.greeting();
                 break;
-            case 2:
+            case EVEN:
                 Even.start();
                 break;
             case CALC:

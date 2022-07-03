@@ -1,35 +1,22 @@
 package hexlet.code.games;
 
+import hexlet.code.App;
 import hexlet.code.Engine;
-
-import java.util.Scanner;
 
 public class Prime {
     public static void app() {
-        System.out.println("Your choice: 6");
-        Engine.greeting();
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        int correctAnsw = 0;
-        while (correctAnsw < Engine.NUM_OF_ROUNDS) {
-            int num = (int) (Math.random() * Engine.BIG_OPERAND_RANGE * 2);
-            System.out.println("Question: " + num);
-            Scanner scan = new Scanner(System.in);
-            String playerAnsw = scan.nextLine();
-            if ((isPrime(num) && playerAnsw.equals("yes")) || (!isPrime(num) && playerAnsw.equals("no"))) {
-                System.out.println("Your answer: " + playerAnsw);
-                System.out.println("Correct!");
-                correctAnsw++;
-            } else {
-                System.out.println("Your answer: " + playerAnsw);
-                String corAnswWas = isPrime(num) ? "yes" : "no";
-                System.out.println("'" + playerAnsw + "' is wrong answer ;(. Correct answer was '" + corAnswWas + "'");
-                System.out.println("Let's try again, " + Engine.getPlayerName() + "!");
-                break;
-            }
+        Engine.gameStart(App.PRIME, "Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+    }
+    public static String[] task() {
+        int num = (int) (Math.random() * Engine.BIG_OPERAND_RANGE * 2);
+        String[] result = new String[2];
+        result[0] = "Question: " + num;
+        if (isPrime(num)) {
+            result[1] = "yes";
+        } else {
+            result[1] = "no";
         }
-        if (correctAnsw == Engine.NUM_OF_ROUNDS) {
-            Engine.congrats();
-        }
+        return result;
     }
 
     private static final int[] ARR_PRIME = new int[]{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61,
