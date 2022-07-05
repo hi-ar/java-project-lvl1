@@ -5,7 +5,7 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public class Even {
-    public static void start() {
+    public static void app() {
         int correctAnsw = 0;
         Scanner scan = new Scanner(System.in);
         System.out.println("Your choice: 2\n"

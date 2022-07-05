@@ -5,7 +5,7 @@ import hexlet.code.Engine;
 
 public class Prime {
     public static void app() {
-        Engine.gameStart(App.PRIME, "Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        Engine.run(App.PRIME, "Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     }
     public static String[] task() {
         int num = (int) (Math.random() * Engine.BIG_OPERAND_RANGE * 2);

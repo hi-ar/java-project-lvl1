@@ -5,7 +5,7 @@ import hexlet.code.Engine;
 
 public class Calc {
     public static void app() {
-        Engine.gameStart(App.CALC, "What is the result of the expression?");
+        Engine.run(App.CALC, "What is the result of the expression?");
     }
 
     public static String[] task() {

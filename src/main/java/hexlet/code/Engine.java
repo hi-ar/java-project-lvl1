@@ -13,66 +13,30 @@ public class Engine {
     public static final int OPERAND_RANGE = 11; // for multiplying
     public static final int BIG_OPERAND_RANGE = 101;
     public static final int OPERATOR_RANGE = 3; // + - *
-    private static String playerName;
 
-    static void greeting() {
-        System.out.println("Welcome to the Brain Games!");
-        System.out.println("May I have your name?");
-        Scanner scan = new Scanner(System.in);
-        String scanPlayerName = scan.nextLine();
-        setPlayerName(scanPlayerName);
-        System.out.println("Hello, " + getPlayerName() + "!");
-    }
-
-    static void setPlayerName(String newPlayerName) {
-        playerName = newPlayerName;
-    }
-
-    static String getPlayerName() {
-        return playerName;
-    }
-
-    public static void gameStart(int numOfGame, String rules) {
+    public static void run(int numOfGame, String rules) {
         System.out.println("Your choice: " + numOfGame + "\n"
                 + "Welcome to the Brain Games!\n"
                 + "May I have your name?");
         Scanner scan = new Scanner(System.in);
-        String scanPlayerName = scan.nextLine();
-        setPlayerName(scanPlayerName);
-        System.out.println("Hello, " + getPlayerName() + "!\n"
+        String playerName = scan.nextLine();
+        System.out.println("Hello, " + playerName + "!\n"
                 + rules);
-        if (numOfGame != App.PRIME) {
-            for (int round = 1; round <= NUM_OF_ROUNDS; round++) {
-                String[] tempArr = outputATask(numOfGame).clone();
-                System.out.println(tempArr[0]); //print a task
-                int scanPlayerAnsw = scan.nextInt();
-                setNumbers(scanPlayerAnsw, Integer.parseInt(tempArr[1]));
-                if (getNumbers()[0] == getNumbers()[1]) {
-                    correct();
-                } else {
-                    loseGame();
-                    break;
-                }
-                if (round == NUM_OF_ROUNDS) {
-                    congrats();
-                }
+
+        for (int round = 1; round <= NUM_OF_ROUNDS; round++) {
+            String[] tempArr = outputATask(numOfGame).clone(); //make clone qws and relevant ans (random gen-ed)
+            System.out.println(tempArr[0]); //print a task
+            String playerAnsw = scan.nextLine();
+            if (playerAnsw.equals(tempArr[1])) {
+                System.out.println("Your answer: " + playerAnsw + "\nCorrect!");
+            } else {
+                System.out.println("Your answer: " + playerAnsw + "\n"
+                        + "'" + playerAnsw + "' is wrong answer ;(. Correct answer was '" + tempArr[1] + "'\n"
+                        + "Let's try again, " + playerName + "!");
+                break;
             }
-        } else { // if game with yes/no answers (Even, Prime etc)
-            for (int round = 1; round <= NUM_OF_ROUNDS; round++) {
-                String[] tempArr = outputATask(numOfGame).clone();
-                System.out.println(tempArr[0]); //print a task
-                String scanPlayerAnsw = scan.nextLine();
-                if (scanPlayerAnsw.equals(tempArr[1])) {
-                    System.out.println("Your answer: " + playerAnsw + "\nCorrect!");
-                } else {
-                    System.out.println("Your answer: " + playerAnsw + "\n"
-                            + "'" + playerAnsw + "' is wrong answer ;(. Correct answer was '" + tempArr[1] + "'\n"
-                            + "Let's try again, " + getPlayerName() + "!");
-                    break;
-                }
-                if (round == NUM_OF_ROUNDS) {
-                    congrats();
-                }
+            if (round == NUM_OF_ROUNDS) {
+                System.out.println("Congratulations, " + playerName + "!");
             }
         }
     }
@@ -90,33 +54,6 @@ public class Engine {
             default:
                 return null;
         }
-    }
-
-
-    private static int playerAnsw;
-    private static int correctAnsw;
-
-    public static void setNumbers(int newPlayerAnsw, int newCorrectAnsw) {
-        playerAnsw = newPlayerAnsw;
-        correctAnsw = newCorrectAnsw;
-    }
-
-    static int[] getNumbers() {  //publ
-        return new int[]{playerAnsw, correctAnsw};
-    }
-
-    public static void correct() {
-        System.out.println("Your answer: " + getNumbers()[0] + "\nCorrect!");
-    }
-
-    public static void loseGame() {
-        System.out.println("Your answer: " + getNumbers()[0] + "\n"
-                + "'" + getNumbers()[0] + "' is wrong answer ;(. Correct answer was '" + getNumbers()[1] + "'\n"
-                + "Let's try again, " + getPlayerName() + "!");
-    }
-
-    public static void congrats() {
-        System.out.println("Congratulations, " + getPlayerName() + "!");
     }
 }
 /*С введением второй игры у вас появляется общая для всех игр логика

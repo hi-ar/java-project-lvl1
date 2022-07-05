@@ -9,7 +9,7 @@ public class Progression {
     private static final int SEQUENCE_LENGTH = 10;
 
     public static void app() {
-        Engine.gameStart(App.PROGRESSION, "What number is missing in the progression?");
+        Engine.run(App.PROGRESSION, "What number is missing in the progression?");
     }
     public static String[] task() {
         int first = (int) (Math.random() * Engine.OPERAND_RANGE * 2); // first num in list 0-22

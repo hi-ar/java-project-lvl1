@@ -8,6 +8,7 @@ import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
 
 public class App {
+    public static final int GREET = 1;
     public static final int EVEN = 2;
     public static final int CALC = 3;
     public static final int GCD_NUM = 4;
@@ -28,11 +29,11 @@ public class App {
         int gameNum = scan.nextInt();
 
         switch (gameNum) {
-            case 1:
+            case GREET:
                 Cli.greeting();
                 break;
             case EVEN:
-                Even.start();
+                Even.app();
                 break;
             case CALC:
                 Calc.app();
@@ -46,8 +47,11 @@ public class App {
             case PRIME:
                 Prime.app();
                 break;
-            default:
+            case 0:
                 break;
+            default:
+                System.out.println("Wrong number");
+                App.main(null);
         }
         scan.close();
     }
