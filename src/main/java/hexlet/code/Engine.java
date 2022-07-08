@@ -29,11 +29,9 @@ public class Engine {
                         + "'" + playerAnsw + "' is wrong answer ;(. Correct answer was '" + dataFromGame[round * 2 + 1]
                         + "'\n"
                         + "Let's try again, " + playerName + "!");
-                break;
+                return;
             }
-            if (round == NUM_OF_ROUNDS) {
-                System.out.println("Congratulations, " + playerName + "!");
-            }
+            System.out.println("Congratulations, " + playerName + "!");
         }
         scan.close();
     }

@@ -17,7 +17,7 @@ public class Calc {
         for (int i = 1; i <= Engine.NUM_OF_ROUNDS; i++) {
             int a = Utils.getRandomNum(Engine.OPERAND_RANGE);
             int b = Utils.getRandomNum(Engine.OPERAND_RANGE);
-            int operation = Utils.getRandomNum(0, Engine.OPERATOR_RANGE); // = - *
+            int operation = Utils.getRandomNum(0, Engine.OPERATOR_RANGE);
             switch (operation) {
                 case PLUS:
                     result[i * 2] = "Question: " + a + " + " + b;   // 2, 4, 6
@@ -32,37 +32,11 @@ public class Calc {
                     result[i * 2 + 1] = Integer.toString(a * b);
                     break;
                 default:
-                    result[i * 2] = "Wrong operation number, available 0-2";
-                    result[i * 2 + 1] = "shit happens";
+                    result[i * 2] = "The Ultimate Question of Life, the Universe, and Everything";
+                    result[i * 2 + 1] = "42";
                     break;
             }
         }
         Engine.run(result);
     }
-
-/*
-    public static String[] task() {
-        int a = (int) (1 + Math.random() * Engine.OPERAND_RANGE);
-        int b = (int) (1 + Math.random() * Engine.OPERAND_RANGE);
-        int operation = (int) (Math.random() * Engine.OPERATOR_RANGE);
-        String[] result = new String[2];
-
-        switch (operation) {
-            case 0:
-                result[0] = "Question: " + a + " + " + b;
-                result[1] = Integer.toString(a + b);
-                break;
-            case 1:
-                result[0] = "Question: " + a + " - " + b;
-                result[1] = Integer.toString(a - b);
-                break;
-            default:
-                result[0] = "Question: " + a + " * " + b;
-                result[1] = Integer.toString(a * b);
-                break;
-        }
-        return result;
-    }
-
- */
 }
