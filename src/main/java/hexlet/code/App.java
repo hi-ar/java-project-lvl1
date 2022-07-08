@@ -1,6 +1,7 @@
 package hexlet.code;
 
 import java.util.Scanner;
+
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
@@ -51,7 +52,6 @@ public class App {
                 break;
             default:
                 System.out.println("Wrong number");
-                App.main(null);
         }
         scan.close();
     }

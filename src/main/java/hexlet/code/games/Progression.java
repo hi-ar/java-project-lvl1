@@ -2,31 +2,33 @@ package hexlet.code.games;
 
 import hexlet.code.App;
 import hexlet.code.Engine;
+import hexlet.code.Utils;
+
 import java.util.StringJoiner;
 
 public class Progression {
-    private static final int HIDDEN_LOCATION_RANGE = 10;
-    private static final int SEQUENCE_LENGTH = 10;
+    static final int SEQUENCE_LENGTH = 10;
+    static final String QUESTION = "What number is missing in the progression?";
 
     public static void app() {
-        Engine.run(App.PROGRESSION, "What number is missing in the progression?");
-    }
-    public static String[] task() {
-        int first = (int) (Math.random() * Engine.OPERAND_RANGE * 2); // first num in list 0-22
-        int step = (int) (1 + Math.random() * Engine.OPERAND_RANGE * 2); // step 1-22
-        int hidden = (int) (Math.random() * SEQUENCE_LENGTH); // hidden elem 0-9
-        String[] result = new String[2];
-        var numString = new StringJoiner(" ");
-
-        for (int i = 0; i < SEQUENCE_LENGTH; i++) {
-            if (i == hidden) {
-                result[1] =  Integer.toString(first + step * i);
-                numString.add("..");
-            } else {
-                numString.add(Integer.toString(first + step * i));
+        String[] result = new String[Engine.GAME_DATA_LENGTH];
+        result[0] = Integer.toString(App.PROGRESSION);
+        result[1] = QUESTION;
+        for (int i = 1; i <= Engine.NUM_OF_ROUNDS; i++) {
+            int first = Utils.getRandomNum(0, Engine.OPERAND_RANGE * 2); // first num in list 0-22
+            int step = Utils.getRandomNum(Engine.OPERAND_RANGE * 2); // step 1-22
+            int hidden = Utils.getRandomNum(0, SEQUENCE_LENGTH); // hidden elem 0-9
+            var numString = new StringJoiner(" ");
+            for (int j = 0; j < SEQUENCE_LENGTH; j++) {
+                if (j == hidden) {
+                    result[i * 2 + 1] = Integer.toString(first + step * j); //correct answer
+                    numString.add("..");
+                } else {
+                    numString.add(Integer.toString(first + step * j));
+                }
             }
+            result[i * 2] = "Question: " + numString;
         }
-        result[0] = "Question: " + numString;
-        return result;
+        Engine.run(result);
     }
 }
