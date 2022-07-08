@@ -14,6 +14,7 @@ public class Calc {
         String[] result = new String[Engine.GAME_DATA_LENGTH];
         result[0] = Integer.toString(App.CALC);
         result[1] = QUESTION;
+
         for (int i = 1; i <= Engine.NUM_OF_ROUNDS; i++) {
             int a = Utils.getRandomNum(Engine.OPERAND_RANGE);
             int b = Utils.getRandomNum(Engine.OPERAND_RANGE);
