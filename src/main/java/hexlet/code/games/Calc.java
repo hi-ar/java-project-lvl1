@@ -5,39 +5,47 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Calc {
-    static final int PLUS = 0;
-    static final int MINUS = 1;
-    static final int MULTIPLY = 2;
-    static final String QUESTION = "What is the result of the expression?";
+    private static final int PLUS = 0;
+    private static final int MINUS = 1;
+    private static final int MULTIPLY = 2;
+    private static final String[] OPERATOR_CHARS = {"+", "-", "*"};
+    private static final int OPERAND_RANGE = 11; // for multiplying
+    private static final String QUESTION = "What is the result of the expression?";
 
     public static void app() {
-        String[] result = new String[Engine.GAME_DATA_LENGTH];
-        result[0] = Integer.toString(App.CALC);
-        result[1] = QUESTION;
+        String[][] gameData = new String[Engine.NUM_OF_ROUNDS][2];
 
-        for (int i = 1; i <= Engine.NUM_OF_ROUNDS; i++) {
-            int a = Utils.getRandomNum(Engine.OPERAND_RANGE);
-            int b = Utils.getRandomNum(Engine.OPERAND_RANGE);
-            int operation = Utils.getRandomNum(0, Engine.OPERATOR_RANGE);
-            switch (operation) {
-                case PLUS:
-                    result[i * 2] = "Question: " + a + " + " + b;   // 2, 4, 6
-                    result[i * 2 + 1] = Integer.toString(a + b);    // 3, 5, 7
-                    break;
-                case MINUS:
-                    result[i * 2] = "Question: " + a + " - " + b;
-                    result[i * 2 + 1] = Integer.toString(a - b);
-                    break;
-                case MULTIPLY:
-                    result[i * 2] = "Question: " + a + " * " + b;
-                    result[i * 2 + 1] = Integer.toString(a * b);
-                    break;
-                default:
-                    result[i * 2] = "The Ultimate Question of Life, the Universe, and Everything";
-                    result[i * 2 + 1] = "42";
-                    break;
+        for (int round = 0; round < Engine.NUM_OF_ROUNDS; round++) {
+            int a = Utils.getRandomNum(OPERAND_RANGE);
+            int b = Utils.getRandomNum(OPERAND_RANGE);
+            int operation = Utils.getRandomNum(OPERATOR_CHARS.length);
+            if (operation >= OPERATOR_CHARS.length) {
+                System.out.println("for operator number " + operation + " logic doesn't defined");
+                return;
             }
+            gameData[round][0] = calculateQA(operation, a, b)[0];
+            gameData[round][1] = calculateQA(operation, a, b)[1];
         }
-        Engine.run(result);
+
+        Engine.run(App.CALC, QUESTION, gameData);
+    }
+
+    private static String[] calculateQA(int operation, int a, int b) {
+        String[] result = new String[2];
+        result[0] = "Question: " + a + " " + OPERATOR_CHARS[operation] + " " + b;
+        switch (operation) {
+            case PLUS:
+                result[1] = Integer.toString(a + b);
+                break;
+            case MINUS:
+                result[1] = Integer.toString(a - b);
+                break;
+            case MULTIPLY:
+                result[1] = Integer.toString(a * b);
+                break;
+            default: // linter order
+                break;
+        }
+        return result;
     }
 }

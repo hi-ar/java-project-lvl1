@@ -6,24 +6,28 @@ import hexlet.code.Utils;
 
 public class GCD {
     static final String QUESTION = "Find the greatest common divisor of given numbers.";
+    private static final int BIG_OPERAND_RANGE = 101;
 
     public static void app() {
-        String[] result = new String[Engine.GAME_DATA_LENGTH];
-        result[0] = Integer.toString(App.GCD_NUM);
-        result[1] = QUESTION;
-        for (int i = 1; i <= Engine.NUM_OF_ROUNDS; i++) {
-            int a = Utils.getRandomNum(Engine.BIG_OPERAND_RANGE);
-            int b = Utils.getRandomNum(Engine.BIG_OPERAND_RANGE);
-            result[i * 2] = "Question: " + a + " " + b; // indexes 2, 4, 6
-            int large = Math.max(a, b);
-            int small = large == a ? b : a;
-            for (int gcd = small; gcd >= 1; gcd--) {
-                if (large % gcd == 0 && small % gcd == 0) {
-                    result[i * 2 + 1] = Integer.toString(gcd); // indexes 3, 5, 7
-                    break;
-                }
+        String[][] gameData = new String[Engine.NUM_OF_ROUNDS][2];
+
+        for (int round = 0; round < Engine.NUM_OF_ROUNDS; round++) {
+            int a = Utils.getRandomNum(1, BIG_OPERAND_RANGE);
+            int b = Utils.getRandomNum(1, BIG_OPERAND_RANGE);
+            gameData[round][0] = "Question: " + a + " " + b;
+            gameData[round][1] = findGCD(a, b);
+        }
+        Engine.run(App.GCD_NUM, QUESTION, gameData);
+    }
+
+    private static String findGCD(int a, int b) {
+        int large = Math.max(a, b);
+        int small = large == a ? b : a;
+        for (int gcd = small; gcd >= 1; gcd--) {
+            if (large % gcd == 0 && small % gcd == 0) {
+                return Integer.toString(gcd);
             }
         }
-        Engine.run(result);
+        return "1";
     }
 }

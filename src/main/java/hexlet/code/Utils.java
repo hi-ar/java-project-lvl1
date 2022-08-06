@@ -5,7 +5,6 @@ public class Utils {
         return (int) (limitFrom + Math.random() * limitTo);
     }
     public static int getRandomNum(int limitTo) {
-        return getRandomNum(1, limitTo);
+        return getRandomNum(0, limitTo);
     }
-
 }
