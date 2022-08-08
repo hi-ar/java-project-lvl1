@@ -29,6 +29,8 @@ public class App {
                 + "0 - Exit");
         int gameNum = scan.nextInt();
 
+        System.out.println("Your choice: " + gameNum);
+
         switch (gameNum) {
             case GREET:
                 Cli.greeting();

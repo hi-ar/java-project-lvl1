@@ -1,9 +1,7 @@
 package hexlet.code.games;
 
-import hexlet.code.App;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
-
 import java.util.StringJoiner;
 
 public class Progression {
@@ -18,24 +16,28 @@ public class Progression {
             int first = Utils.getRandomNum(OPERAND_RANGE * 2); // first num in list 0-22
             int step = Utils.getRandomNum(1, OPERAND_RANGE * 2); // step 1-22
             int hidden = Utils.getRandomNum(SEQUENCE_LENGTH); // hidden elem 0-9
-            gameData[round][0] = getSequence(first, step, hidden)[0];
-            gameData[round][1] = getSequence(first, step, hidden)[1];
+            gameData[round][0] = getSequenceQA(first, step, hidden)[0];
+            gameData[round][1] = getSequenceQA(first, step, hidden)[1];
         }
-        Engine.run(App.PROGRESSION, QUESTION, gameData);
+        Engine.run(QUESTION, gameData);
     }
 
-    private static String[] getSequence(int first, int step, int hidden) {
-        String[] sequenceQA = new String[2];
-        var sequence = new StringJoiner(" ");
-        for (int j = 0; j < SEQUENCE_LENGTH; j++) {
-            if (j == hidden) {
-                sequenceQA[1] = Integer.toString(first + step * j); //correct answer
-                sequence.add("..");
-            } else {
-                sequence.add(Integer.toString(first + step * j));
-            }
+    private static String[] getSequenceQA(int first, int step, int hidden) {
+
+        int[] arrSequence = new int[SEQUENCE_LENGTH];
+        for (int i = 0; i < SEQUENCE_LENGTH; i++) {
+            arrSequence[i] = i * step + first;
         }
+
+        var sequence = new StringJoiner(" ");
+        for (int i = 0; i < SEQUENCE_LENGTH; i++) {
+            sequence.add(i == hidden ? ".." : Integer.toString(arrSequence[i]));
+        }
+
+        String[] sequenceQA = new String[2];
         sequenceQA[0] = "Question: " + sequence;
+        sequenceQA[1] = Integer.toString(arrSequence[hidden]);
+
         return sequenceQA;
     }
 }

@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.App;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
@@ -16,7 +15,7 @@ public class Prime {
             gameData[round][0] = "Question: " + num;
             gameData[round][1] = isPrime(num);
         }
-        Engine.run(App.PRIME, QUESTION, gameData);
+        Engine.run(QUESTION, gameData);
     }
 
     private static String isPrime(int num) {

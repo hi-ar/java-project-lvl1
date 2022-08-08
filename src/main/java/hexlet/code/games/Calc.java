@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.App;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
@@ -23,29 +22,23 @@ public class Calc {
                 System.out.println("for operator number " + operation + " logic doesn't defined");
                 return;
             }
-            gameData[round][0] = calculateQA(operation, a, b)[0];
-            gameData[round][1] = calculateQA(operation, a, b)[1];
+            gameData[round][0] = "Question: " + a + " " + OPERATOR_CHARS[operation] + " " + b;
+            gameData[round][1] = Integer.toString(calculate(operation, a, b));
         }
 
-        Engine.run(App.CALC, QUESTION, gameData);
+        Engine.run(QUESTION, gameData);
     }
 
-    private static String[] calculateQA(int operation, int a, int b) {
-        String[] result = new String[2];
-        result[0] = "Question: " + a + " " + OPERATOR_CHARS[operation] + " " + b;
+    private static int calculate(int operation, int a, int b) {
         switch (operation) {
             case PLUS:
-                result[1] = Integer.toString(a + b);
-                break;
+                return a + b;
             case MINUS:
-                result[1] = Integer.toString(a - b);
-                break;
+                return a - b;
             case MULTIPLY:
-                result[1] = Integer.toString(a * b);
-                break;
+                return a * b;
             default: // linter order
-                break;
+                return 1;
         }
-        return result;
     }
 }

@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.App;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
@@ -15,19 +14,19 @@ public class GCD {
             int a = Utils.getRandomNum(1, BIG_OPERAND_RANGE);
             int b = Utils.getRandomNum(1, BIG_OPERAND_RANGE);
             gameData[round][0] = "Question: " + a + " " + b;
-            gameData[round][1] = findGCD(a, b);
+            gameData[round][1] = Integer.toString(findGCD(a, b));
         }
-        Engine.run(App.GCD_NUM, QUESTION, gameData);
+        Engine.run(QUESTION, gameData);
     }
 
-    private static String findGCD(int a, int b) {
+    private static int findGCD(int a, int b) {
         int large = Math.max(a, b);
         int small = large == a ? b : a;
         for (int gcd = small; gcd >= 1; gcd--) {
             if (large % gcd == 0 && small % gcd == 0) {
-                return Integer.toString(gcd);
+                return gcd;
             }
         }
-        return "1";
+        return 1;
     }
 }
