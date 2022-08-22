@@ -18,10 +18,7 @@ public class Calc {
             int a = Utils.getRandomNum(OPERAND_RANGE);
             int b = Utils.getRandomNum(OPERAND_RANGE);
             int operation = Utils.getRandomNum(OPERATOR_CHARS.length);
-            if (operation >= OPERATOR_CHARS.length) {
-                System.out.println("for operator number " + operation + " logic doesn't defined");
-                return;
-            }
+
             gameData[round][0] = "Question: " + a + " " + OPERATOR_CHARS[operation] + " " + b;
             gameData[round][1] = Integer.toString(calculate(operation, a, b));
         }
@@ -29,7 +26,7 @@ public class Calc {
         Engine.run(QUESTION, gameData);
     }
 
-    private static int calculate(int operation, int a, int b) {
+    private static int calculate(int operation, int a, int b) throws RuntimeException {
         switch (operation) {
             case PLUS:
                 return a + b;
@@ -37,8 +34,8 @@ public class Calc {
                 return a - b;
             case MULTIPLY:
                 return a * b;
-            default: // linter order
-                return 1;
+            default:
+                throw new RuntimeException("no logic defined for division");
         }
     }
 }

@@ -13,20 +13,20 @@ public class Prime {
         for (int round = 0; round < Engine.NUM_OF_ROUNDS; round++) {
             int num = Utils.getRandomNum(BIG_OPERAND_RANGE * 2);
             gameData[round][0] = "Question: " + num;
-            gameData[round][1] = isPrime(num);
+            gameData[round][1] = isPrime(num) ? "yes" : "no";
         }
         Engine.run(QUESTION, gameData);
     }
 
-    private static String isPrime(int num) {
+    private static boolean isPrime(int num) {
         if (num < 2) {
-            return "no";
+            return false;
         }
         for (int i = 2; i < num; i++) {
             if (num % i == 0) {
-                return "no";
+                return false;
             }
         }
-        return "yes";
+        return true;
     }
 }

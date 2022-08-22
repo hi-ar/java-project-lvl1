@@ -12,15 +12,11 @@ public class Even {
         for (int round = 0; round < Engine.NUM_OF_ROUNDS; round++) {
             int a = Utils.getRandomNum(BIG_OPERAND_RANGE);
             gameData[round][0] = "Question: " + a;
-            gameData[round][1] = isEven(a);
+            gameData[round][1] = isEven(a) ? "yes" : "no";
         }
         Engine.run(QUESTION, gameData);
     }
-    private static String isEven(int num) {
-        if (num % 2 == 0) {
-            return "yes";
-        } else {
-            return "no";
-        }
+    private static boolean isEven(int num) {
+        return num % 2 == 0;
     }
 }
