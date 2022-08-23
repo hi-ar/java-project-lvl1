@@ -36,19 +36,19 @@ public class App {
                 Cli.greeting();
                 break;
             case EVEN:
-                Even.app();
+                Even.runGame();
                 break;
             case CALC:
-                Calc.app();
+                Calc.runGame();
                 break;
             case GCD_NUM:
-                GCD.app();
+                GCD.runGame();
                 break;
             case PROGRESSION:
-                Progression.app();
+                Progression.runGame();
                 break;
             case PRIME:
-                Prime.app();
+                Prime.runGame();
                 break;
             case 0:
                 break;

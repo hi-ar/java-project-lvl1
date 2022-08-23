@@ -6,7 +6,7 @@ import hexlet.code.Utils;
 public class Even {
     private static final int BIG_OPERAND_RANGE = 101;
     private static final String QUESTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    public static void app() {
+    public static void runGame() {
         String[][] gameData = new String[Engine.NUM_OF_ROUNDS][2];
 
         for (int round = 0; round < Engine.NUM_OF_ROUNDS; round++) {

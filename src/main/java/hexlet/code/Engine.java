@@ -12,7 +12,6 @@ public class Engine {
         String playerName = scan.nextLine();
         System.out.println("Hello, " + playerName + "!\n"
                 + qwestion);
-        //System.out.println(Arrays.deepToString(gameData)); // remove
 
         for (int round = 0; round < NUM_OF_ROUNDS; round++) {
             System.out.println(gameData[round][0]); //print a task

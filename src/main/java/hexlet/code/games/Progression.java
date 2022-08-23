@@ -10,7 +10,7 @@ public class Progression {
     static final int OPERAND_RANGE = 11;
     static final String QUESTION = "What number is missing in the progression?";
 
-    public static void app() {
+    public static void runGame() {
         String[][] gameData = new String[Engine.NUM_OF_ROUNDS][2];
 
         for (int round = 0; round < Engine.NUM_OF_ROUNDS; round++) {
@@ -26,7 +26,7 @@ public class Progression {
         Engine.run(QUESTION, gameData);
     }
 
-    private static int[] generateProgression (int seqLength, int first, int step){
+    private static int[] generateProgression(int seqLength, int first, int step) {
         int[] progression = new int[seqLength];
         for (int i = 0; i < seqLength; i++) {
             progression[i] = i * step + first;
@@ -34,7 +34,7 @@ public class Progression {
         return progression;
     }
 
-    private static String[] getQA (int[] progression, int hidden) {
+    private static String[] getQA(int[] progression, int hidden) {
         var sequence = new StringJoiner(" ");
         for (int i = 0; i < progression.length; i++) {
             sequence.add(i == hidden ? ".." : Integer.toString(progression[i]));

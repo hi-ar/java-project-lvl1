@@ -11,7 +11,7 @@ public class Calc {
     private static final int OPERAND_RANGE = 11; // for multiplying
     private static final String QUESTION = "What is the result of the expression?";
 
-    public static void app() {
+    public static void runGame() {
         String[][] gameData = new String[Engine.NUM_OF_ROUNDS][2];
 
         for (int round = 0; round < Engine.NUM_OF_ROUNDS; round++) {
